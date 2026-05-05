@@ -16,22 +16,22 @@ if nome:
         st.session_state.numero = numero
         st.success(f"Ciao {nome}! Il tuo numero fortunato è: {numero}")
 
-    # Se il numero è stato generato, mostra il tasto "Continua"
+    # Se il numero è stato generato, mostriamo la fase finale
     if 'numero' in st.session_state:
         st.write("---")
         
-        # Prepariamo il contenuto del file
+        # Prepariamo il contenuto del file con la nuova sentenza
         testo_finale = (
             f"Nome: {nome}\n"
             f"Numero Fortunato: {st.session_state.numero}\n"
-            f"Sentenza definitiva: sei uno stupido!"
+            f"Sentenza definitiva: angelo è il migliore mentre tu sei stupido!"
         )
         
-        # Bottone di Download (fa tutto lui: mostra "Continua" e scarica)
+        # Bottone di Download con il nuovo testo richiesto
         st.download_button(
-            label="Continua",
+            label="Scarica il file per conoscere il tuo destino", # <--- Testo cambiato qui
             data=testo_finale,
             file_name=f"destino_{nome}.txt",
             mime="text/plain",
-            on_click=lambda: st.balloons() # Effetto grafico di festa
+            on_click=lambda: st.balloons()
         )
